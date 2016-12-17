@@ -1,5 +1,8 @@
 package com.javarush.test.level22.lesson13.task03;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 /* Проверка номера телефона
 Метод checkTelNumber должен проверять, является ли аргумент telNumber валидным номером телефона.
 Критерии валидности:
@@ -26,6 +29,9 @@ package com.javarush.test.level22.lesson13.task03;
 public class Solution {
 
     public static boolean checkTelNumber(String telNumber) {
-        return false;
+
+        return ((telNumber.matches("^\\+[\\(\\-]?(\\d[\\(\\)\\-]?){11}\\d$") || telNumber.matches("^\\(?(\\d[\\-\\(\\)]?){9}\\d$"))
+                && telNumber.matches("[\\+]?\\d*(\\(\\d{3}\\))?\\d*\\-?\\d*\\-?\\d*\\d$"));
+
     }
 }
